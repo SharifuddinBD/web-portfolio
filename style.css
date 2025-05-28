@@ -5,7 +5,7 @@ body {
 h1{
     font-size: 50px;
 }
-.name-highlight {
+.orange-highlight {
     color: orange;
 }
 
@@ -16,11 +16,46 @@ h1{
 }
 
 .half-width img {
-    width: 70%;
+    width: 100%;
 }
 
+img {
+    max-width: 70%;
+    height: auto;
+}
+
+
+
 .top-banner {
-    height: 100px;
+    height: 90px;
     background-image: url("images/top-banner.png");
     background-repeat: no-repeat;
+}
+
+#Full-Stack{
+    border-left: 7px solid blue;
+}
+
+#Baby-Stack{
+    border-left: 7px solid green;
+}
+
+.link-button {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(45deg, Salmon, Tomato);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.single-experience {
+    box-shadow: 10px 10px 40px gray; 
+    border-radius: 5px;
+    height: 80%;
+    padding: 20px; 
+}
+.section {
+    height: 500px;
+    padding-bottom: 150px;
+
 }
