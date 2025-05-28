@@ -46,7 +46,7 @@ To view locally:
 
 Feel free to connect\!
 
-  * **GitHub:** [https://github.com/SharifuddinBD](https://www.google.com/search?q=https://github.com/SharifuddinBD)
+  * **Linkedin:** [SHARIF UDDIN](https://www.linkedin.com/in/sharif-uddin-sustcse/)
   * **Email:** sharifuddin331080@gmail.com
 
 -----
