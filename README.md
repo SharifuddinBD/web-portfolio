@@ -46,8 +46,7 @@ To view locally:
 
 Feel free to connect\!
 
-  * **Linkedin:** [SHARIF UDDIN](https://www.linkedin.com/in/sharif-uddin-sustcse/)
-  * **Email:** sharifuddin331080@gmail.com
+* **LinkedIn:** <a href="https://www.linkedin.com/in/sharif-uddin-sustcse/" target="_blank">SHARIF UDDIN</a>  * **Email:** sharifuddin331080@gmail.com
 
 -----
 
