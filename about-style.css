@@ -313,3 +313,14 @@
                 gap: 3rem;
             }
         }
+
+        /* Large Desktop */
+        @media (min-width: 1200px) {
+            .page-header h1 {
+                font-size: 3.5rem;
+            }
+
+            .container {
+                max-width: 1400px;
+            }
+        }
