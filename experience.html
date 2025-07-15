@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Sharif Uddin</title>
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Sharif Uddin</a>
+            <button class="mobile-menu-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="experience.html" class="active">Experience</a></li>
+                <li><a href="dream.html">Dream</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>My Experience</h1>
+            <p>My journey in web development and professional growth</p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section">
+        <div class="container">
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-content">
+                        <h3>Full Stack Web Developer</h3>
+                        <div class="experience-duration">2024 - Present</div>
+                        <div class="experience-role">Pro level Web Developer</div>
+                        <p>As a full stack web developer, I am skilled in both front-end and back-end technologies, enabling me to design, build, and maintain complete web applications from user interface to server and database management. I work with modern frameworks and technologies to deliver scalable and efficient solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-content">
+                        <h3>Baby Web Developer</h3>
+                        <div class="experience-duration">2023 - 2024</div>
+                        <div class="experience-role">Programming Hero Learner</div>
+                        <p>Started my journey as a baby web developer, learning the basics of web development including HTML, CSS, and JavaScript. During this period, I was eager to build my first websites and applications while continuously improving my skills through Programming Hero's comprehensive learning program.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <ul class="skill-list">
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>React.js</li>
+                        <li>Vue.js</li>
+                        <li>Responsive Design</li>
+                        <li>Bootstrap & Tailwind</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <ul class="skill-list">
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                        <li>Python</li>
+                        <li>PHP</li>
+                        <li>RESTful APIs</li>
+                        <li>Database Management</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>MongoDB</li>
+                        <li>MySQL</li>
+                        <li>Firebase</li>
+                        <li>Netlify & Vercel</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Problem Solving</li>
+                        <li>Team Collaboration</li>
+                        <li>Project Management</li>
+                        <li>Communication</li>
+                        <li>Continuous Learning</li>
+                        <li>Attention to Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sharif Uddin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate timeline items on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.experience-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
