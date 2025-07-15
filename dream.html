@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream - Sharif Uddin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a.active {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        /* Dream Section */
+        .dream-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .dream-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .dream-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .dream-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .dream-text:last-of-type {
+            margin-bottom: 3rem;
+        }
+
+        .github-button {
+            display: inline-block;
+            background: #333;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .github-button:hover {
+            background: #555;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(51, 51, 51, 0.3);
+        }
+
+        /* Goals Section */
+        .goals-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .goals-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .goal-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .goal-card.animated {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .goal-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .goal-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .goal-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Vision Section */
+        .vision-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .vision-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .vision-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .vision-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .vision-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .vision-list li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 1rem 0;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border-left: 4px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .vision-list li.animated {
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        .vision-list li:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .contact-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-button.secondary {
+            background: #ff6b6b;
+        }
+
+        .contact-button.secondary:hover {
+            background: #ff5252;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .dream-content h2,
+            .goals-section h2,
+            .vision-content h2,
+            .contact-content h2 {
+                font-size: 2rem;
+            }
+
+            .goals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .vision-list li {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header {
+                padding: 100px 0 60px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .dream-section,
+            .goals-section,
+            .vision-section,
+            .contact-section {
+                padding: 60px 0;
+            }
+
+            .dream-content h2,
+            .goals-section h2,
+            .vision-content h2,
+            .contact-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .dream-text,
+            .vision-content p {
+                font-size: 1rem;
+            }
+
+            .goal-card {
+                padding: 1.5rem;
+            }
+
+            .github-button,
+            .contact-button {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Tablet Responsive */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .goals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1200px) {
+            .page-header h1 {
+                font-size: 3.5rem;
+            }
+
+            .container {
+                max-width: 1400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Sharif Uddin</a>
+            <button class="mobile-menu-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="dream.html" class="active">Dream</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>My Dream</h1>
+            <p>Aspirations, goals, and vision for the future</p>
+        </div>
+    </section>
+
+    <!-- Dream Section -->
+    <section class="dream-section">
+        <div class="container">
+            <div class="dream-content">
+                <h2>My Vision</h2>
+                <p class="dream-text">To be a successful web developer and contribute to the tech community by creating innovative solutions that enhance user experiences and drive business growth.</p>
+                <p class="dream-text">I aspire to continuously learn and adapt to new technologies, ensuring that I remain at the forefront of web development trends. My goal is to build applications that not only meet client needs but also exceed user expectations.</p>
+                <a href="https://github.com" class="github-button" target="_blank">GITHUB</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="goals-section">
+        <div class="container">
+            <h2>My Goals</h2>
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <div class="goal-icon">🎯</div>
+                    <h3>Technical Excellence</h3>
+                    <p>Master cutting-edge technologies and frameworks to deliver high-quality, scalable web applications that solve real-world problems.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon">🌟</div>
+                    <h3>Innovation</h3>
+                    <p>Create innovative digital solutions that push the boundaries of what's possible in web development and user experience design.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon">🤝</div>
+                    <h3>Community Impact</h3>
+                    <p>Contribute to the tech community through open-source projects, mentoring, and sharing knowledge with fellow developers.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon">🚀</div>
+                    <h3>Career Growth</h3>
+                    <p>Build a successful career in web development while continuously learning and adapting to new technologies and industry trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section">
+        <div class="container">
+            <div class="vision-content">
+                <h2>Future Aspirations</h2>
+                <p>My journey in web development is driven by a passion for creating meaningful digital experiences. Here's what I envision for my future:</p>
+                <ul class="vision-list">
+                    <li>🏢 Work with leading tech companies on impactful projects</li>
+                    <li>🌐 Develop applications that reach millions of users worldwide</li>
+                    <li>📚 Continuously learn emerging technologies and best practices</li>
+                    <li>👥 Lead and mentor development teams</li>
+                    <li>🎨 Bridge the gap between design and development</li>
+                    <li>🔬 Contribute to open-source projects and tech innovation</li>
+                </ul>
+                <p>I believe that technology should serve humanity, and I'm committed to building solutions that make a positive impact on people's lives.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Let's Build the Future Together</h2>
+                <p>I'm always excited to collaborate on innovative projects and connect with like-minded individuals who share my passion for technology and innovation.</p>
+                <div class="contact-buttons">
+                    <a href="mailto:sharif@example.com" class="contact-button">Email Me</a>
+                    <a href="https://linkedin.com" class="contact-button secondary" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sharif Uddin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate goal cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // Observe goal cards
+        document.querySelectorAll('.goal-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+            observer.observe(card);
+        });
+
+        // Observe vision list items
+        document.querySelectorAll('.vision-list li').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+            observer.observe(item);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add typing animation to page title
+        const title = document.querySelector('.page-header h1');
+        const titleText = title.textContent;
+        title.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < titleText.length) {
+                title.textContent += titleText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        // Start typing animation after page load
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 500);
+        });
+
+        // Add parallax effect to background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const pageHeader = document.querySelector('.page-header');
+            const visionSection = document.querySelector('.vision-section');
+            
+            if (pageHeader) {
+                pageHeader.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+            
+            if (visionSection) {
+                const visionTop = visionSection.offsetTop;
+                const visionScrolled = scrolled - visionTop;
+                if (visionScrolled > 0) {
+                    visionSection.style.backgroundPosition = `center ${visionScrolled * 0.5}px`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
