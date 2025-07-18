@@ -182,14 +182,6 @@
             color: #764ba2;
         }
 
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
         /* Animations */
         @keyframes fadeInUp {
             from {

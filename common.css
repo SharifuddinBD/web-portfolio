@@ -172,3 +172,13 @@
                 max-width: 1400px;
             }
         }
+
+
+
+         /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
